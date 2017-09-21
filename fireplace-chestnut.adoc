@@ -1,0 +1,23 @@
+= Piggiebacking Chestnut in Fireplace
+
+== tl;dr
+
+[source,vim]
+----
+:Piggieback (figwheel-sidecar.system/repl-env (:figwheel-system reloaded.repl/system) nil)
+----
+
+== Explain
+
+Chestnut holds a custom mount of figwheel, which means that the usual strategy
+for doing `:Piggieback` doesn't work.
+
+Instead you have to grab the figwheel system out of Chestnut's own system
+(`(:figwheel-system reloaded.repl/system)`), and then use the function figwheel
+uses to get the repl-env out of that (`figwheel-sidecar.system/repl-env`).
+
+`nil` is the build-id you want to attach to. Leave it nil if you only have one.
+
+This does rely on some internals of figwheel, so it may break some day, in
+which case you should look at the source of
+`figwheel-sidecar.repl-api/repl-env` to figure out how it is implemented.
