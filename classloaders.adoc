@@ -1,0 +1,39 @@
+= Classloaders research
+
+== Jar in Jar
+
+A list of classloaders which let you put jars inside each other.
+
+link:http://one-jar.sourceforge.net/[One-Jar]::
+* BSD license
+* Poor documentation
+* No pollution onto the hard drive
+* No dependencies
+* Manifest config
+
+link:http://www.jdotsoft.com/JarClassLoader.php[jdsoft Jar Class Loader]::
+* GPLv3 license
+* Good documentation
+* No pollution onto hard drive
+* No dependencies
+* No manifest config
+
+link:http://www.capsule.io/user-guide/[Capsule]::
+* EPLv1 license
+* Mostly good documentation
+* Pollutes environment by expanding the jar onto fs
+* Supports default args, envs and jvm-args
+* No dependencies
+* Manifest config
+
+link:https://github.com/kamranzafar/JCL/[Xeus technologies JCL2]::
+* APLv2 license
+* OK documentation
+* link:https://github.com/kamranzafar/JCL/pull/61[Concerning open PRs/issues]
+* More control over internal layout
+* Has dependencies
+* No manfiest config
+
+== Guides
+
+* https://docs.oracle.com/javase/tutorial/deployment/jar/jarclassloader.html Implementing your own Jar in Jar classloader (limitations unmentioned - I suspect perhaps native libraries)
